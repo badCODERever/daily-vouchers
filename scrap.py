@@ -3,8 +3,8 @@ import re
 from xlrd import open_workbook
 from xlutils.copy import copy
 driver = webdriver.Chrome()
-file_name='E:\\saledata.xls'
-rb=open_workbook(file_name)
+file_name='E:\\activerstorelist.xls'
+rb=open_workbook(file_name,formatting_info=True)
 wb=copy(rb)
 rsheet=rb.sheet_by_index(0)
 wsheet=wb.get_sheet(0)
@@ -20,12 +20,13 @@ for i in range(rsheet.nrows):
     for i in disct:
         li.append(''.join(i))
     s=', '.join(str(e) for e in li)
-    #wsheet.write(i,1,s)
-    print s
+    print (url.center(100,"*"))
+    print (s)
     #print disct
     #for i in disct:
 	#offers.append("".join(i))
-	#wsheet.write(i,1,disct)    
+	#wsheet.write(i,1,disct)
+#wb.save(file_name)
 driver.close()
-wb.save(file_name)
+
 
