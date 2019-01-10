@@ -16,9 +16,16 @@ for i in range(rsheet.nrows):
     sel_source=driver.page_source
     x = re.findall("(Up to \d\d% Off)|(\d\d% Off)|(Extra \d\d% Off)", sel_source,re.IGNORECASE)
     disct=set(x)
+    li=[]
     for i in disct:
-	offers.append("".join(i))
-	wsheet.write(i,1,disct)    
+        li.append(''.join(i))
+    s=', '.join(str(e) for e in li)
+    wsheet.write(i,1,s)
+    print s
+    #print disct
+    #for i in disct:
+	#offers.append("".join(i))
+	#wsheet.write(i,1,disct)    
 driver.close()
 wb.save(file_name)
 
