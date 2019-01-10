@@ -20,7 +20,7 @@ for i in range(rsheet.nrows):
     for i in disct:
         li.append(''.join(i))
     s=', '.join(str(e) for e in li)
-    wsheet.write(i,1,s)
+    #wsheet.write(i,1,s)
     print s
     #print disct
     #for i in disct:
