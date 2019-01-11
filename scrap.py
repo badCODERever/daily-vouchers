@@ -3,8 +3,8 @@ import re
 from xlrd import open_workbook
 from xlutils.copy import copy
 driver = webdriver.Chrome()
-file_name='E:\\saledata.xls'
-rb=open_workbook(file_name,'wb')
+file_name='daily-vouchers/activerstorelist.xls'
+rb=open_workbook(file_name,'wb')#open file with writemode
 wb=copy(rb)
 rsheet=rb.sheet_by_index(0)
 wsheet=wb.get_sheet(0)
@@ -21,5 +21,6 @@ for i in range(rsheet.nrows):
     wsheet.write(i,1,s)
     wb.save(file_name)
 driver.close()
+
 
 
