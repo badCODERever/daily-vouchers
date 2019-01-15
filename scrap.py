@@ -3,7 +3,7 @@ import re
 from xlrd import open_workbook
 from xlutils.copy import copy
 driver = webdriver.Chrome()
-file_name='daily-vouchers/activerstorelist.xls'
+file_name='E:\\activerstorelist.xls'
 rb=open_workbook(file_name,'wb')#open file with writemode
 wb=copy(rb)
 rsheet=rb.sheet_by_index(0)
