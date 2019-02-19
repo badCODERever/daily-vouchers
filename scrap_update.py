@@ -18,6 +18,7 @@ for i in range(rsheet.nrows):
     for j in disct:
         li.append(''.join(j))
     s=', '.join(str(e) for e in li)
+    print (s)
     wsheet.write(i,1,s)
     wb.save(file_name)
 driver.close()
