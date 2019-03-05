@@ -3,7 +3,7 @@ import re
 from xlrd import open_workbook
 from xlutils.copy import copy
 driver = webdriver.Chrome()
-file_name='E:\\activerstorelist.xls'
+file_name='E:\\activerstorelist2.xls'
 rb=open_workbook(file_name,'wb')#open file with writemode
 wb=copy(rb)
 rsheet=rb.sheet_by_index(0)
@@ -19,7 +19,15 @@ for i in range(rsheet.nrows):
         li.append(''.join(j))
     s=', '.join(str(e) for e in li)
     print (s)
+    yvalue=rsheet.cell(i,1).value
+    wsheet.write(i,2,yvalue)
     wsheet.write(i,1,s)
+    if s==yvalue:
+        print("No Changes in Offer")
+        wsheet.write(i,3,"No Change")
+    else:
+        print("Offer got changed")
+        wsheet.write(i, 3, "Change in Offer")
     wb.save(file_name)
 driver.close()
 
