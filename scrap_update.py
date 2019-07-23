@@ -3,12 +3,12 @@ import re
 from xlrd import open_workbook
 from xlutils.copy import copy
 driver = webdriver.Chrome()
-file_name='E:\\activerstorelist2.xls'
+file_name='E:\\activerstorelist.xls'
 rb=open_workbook(file_name,'wb')#open file with writemode
 wb=copy(rb)
 rsheet=rb.sheet_by_index(0)
 wsheet=wb.get_sheet(0)
-for i in range(rsheet.nrows):  
+for i in range(1,rsheet.nrows):  
     url=rsheet.cell(i,0).value
     driver.get(url)
     sel_source=driver.page_source

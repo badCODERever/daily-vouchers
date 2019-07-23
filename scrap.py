@@ -2,6 +2,7 @@ from selenium import webdriver
 import re
 from xlrd import open_workbook
 from xlutils.copy import copy
+import cv2
 driver = webdriver.Chrome()
 file_name='E:\\activerstorelist.xls'
 rb=open_workbook(file_name,'wb')#open file with writemode
